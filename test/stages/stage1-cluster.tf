@@ -1,18 +1,22 @@
-module "dev_cluster" {
-  source = "github.com/ibm-garage-cloud/terraform-ibm-container-platform.git"
+module "cluster" {
+  source = "github.com/cloud-native-toolkit/terraform-ibm-ocp-vpc.git"
 
-  resource_group_name     = var.resource_group_name
-  cluster_name            = var.cluster_name
-  cluster_region          = var.region
-  cluster_type            = substr(var.cluster_type, 0, 3) == "iks" ? "kubernetes" : var.cluster_type
-  cluster_exists          = true
-  ibmcloud_api_key        = var.ibmcloud_api_key
-  name_prefix             = var.name_prefix
-  is_vpc                  = var.vpc_cluster
-  private_vlan_id         = ""
-  public_vlan_id          = ""
-  vlan_datacenter         = ""
-  cluster_machine_type    = ""
-  cluster_worker_count    = 3
-  cluster_hardware        = ""
+  depends_on = [ module.cos, module.subnets, module.vpc ]
+
+  resource_group_name = module.resource_group.name
+  region              = var.region
+  ibmcloud_api_key    = var.ibmcloud_api_key
+  name                = var.cluster_name
+  worker_count        = var.worker_count
+  flavor              = var.flavor
+  ocp_version         = var.ocp_version
+  exists              = "false"
+  name_prefix         = local.name_prefix_test
+  ocp_entitlement     = ""
+  force_delete_storage = "true"
+  vpc_name            = module.subnets.vpc_name
+  vpc_subnets         = module.subnets.subnets
+  vpc_subnet_count    = module.subnets.count
+  cos_id              = module.cos.id
+  login               = "true"
 }

@@ -1,0 +1,5 @@
+resource_group_name = "cloud-pak-sandbox-ibm"
+ibmcloud_api_key = "wRYZPhawQp365OSPZXOgeBT8CBnf1DrllAjFH1EhbGNn"
+region = "ca-tor"
+cluster_name = "odf_vpc"
+name_prefix = "ann_test"

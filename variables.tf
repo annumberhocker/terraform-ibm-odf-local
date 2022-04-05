@@ -1,6 +1,8 @@
-#variable "myvariable" {
-#  type        = string
-#  description = "A description of my variable"
-#  default     = ""
-#}
+variable "cluster" {
+  description = "Provide cluster id"
+}
 
+
+variable "ibmcloud_api_key" {
+  description = "IBMCloud API key (https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key)"
+}
