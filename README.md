@@ -1,4 +1,4 @@
-# Test ODF Terraform Module
+# ODF Terraform Module
 
 ## 1. Set up access to IBM Cloud
 
