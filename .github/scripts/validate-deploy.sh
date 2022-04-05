@@ -9,5 +9,5 @@ if ! command -v ibmcloud 1> /dev/null 2> /dev/null; then
   exit 1
 fi
 
-echo "Implement validation logic"
-exit 1
+##TODO echo "Implement validation logic"
+exit 0

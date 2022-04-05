@@ -1,6 +1,6 @@
 module "odf_module" {
-  source = "./module"
-  #source = "../../"
+  #source = "./module"
+  source = "../../"
 
   depends_on = [ module.cluster ]
 
