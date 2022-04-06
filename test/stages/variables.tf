@@ -29,12 +29,12 @@ variable "name_prefix" {
 variable "flavor" {
   type        = string
   description = "The machine type that will be provisioned for classic infrastructure"
-  default     = "bx2.4x16"
+  default     = "bx2.16x64"
 }
 
 variable "worker_count" {
   type        = number
-  default     = 2
+  default     = 3
 }
 
 variable "ocp_version" {
