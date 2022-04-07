@@ -5,6 +5,6 @@ module "subnets" {
   region            = var.region
   vpc_name          = module.vpc.name
   gateways          = module.gateways.gateways
-  _count            = 1
-  label             = "testodf"
+  _count            = var.vpc_subnet_count
+  label             = var.vpc_subnet_label
 }

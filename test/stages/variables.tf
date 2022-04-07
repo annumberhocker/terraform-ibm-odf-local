@@ -14,11 +14,11 @@ variable "ibmcloud_api_key" {
   default     = ""
 }
 
-variable "cluster_name" {
-  type        = string
-  description = "The name of the cluster"
-  default     = ""
-}
+# variable "cluster_name" {
+#   type        = string
+#   description = "The name of the cluster"
+#   default     = ""
+# }
 
 variable "name_prefix" {
   type        = string
@@ -60,26 +60,26 @@ variable "force_delete_storage" {
 #   default     = true
 # }
 
-# variable "vpc_public_gateway" {
-#   type        = string
-#   description = "Flag indicating the public gateway should be created"
-#   default     = "true"
-# }
+variable "vpc_public_gateway" {
+  type        = string
+  description = "Flag indicating the public gateway should be created"
+  default     = "true"
+}
 
-# variable "vpc_subnet_count" {
-#   type        = number
-#   description = "The number of subnets to create for the VPC instance"
-#   default     = 0
-# }
+variable "vpc_subnet_count" {
+  type        = number
+  description = "The number of subnets to create for the VPC instance"
+  default     = 1
+}
 
-# variable "vpc_subnets" {
-#   type        = string
-#   description = "JSON representation of list of object, e.g. [{\"label\"=\"default\"}]"
-#   default     = "[]"
-# }
+variable "vpc_subnets" {
+  type        = string
+  description = "JSON representation of list of object, e.g. [{\"label\"=\"default\"}]"
+  default     = "[]"
+}
 
-# variable "vpc_subnet_label" {
-#   type        = string
-#   default     = "cluster"
-# }
+variable "vpc_subnet_label" {
+  type        = string
+  default     = "cluster"
+}
 
