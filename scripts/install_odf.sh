@@ -10,3 +10,32 @@ ROKS_VERSION=`kubectl get clusterversion -o jsonpath='{.items[].status.history[]
 ROKS_VERSION="${ROKS_VERSION%.*}.0"
 
 ibmcloud ks cluster addon enable openshift-data-foundation -c ${CLUSTER} --version ${ROKS_VERSION} --param "odfDeploy=false"
+
+ibmcloud ks cluster addon ls -c ${CLUSTER} |  grep openshift-data-foundation | grep "Addon Ready"
+result=$?
+counter=0
+while [[ "${result}" -ne 0 ]]
+do
+    if [[ $counter -gt 20 ]]; then
+    echo "Timed out waiting for ODF to be enabled"
+        exit 1
+    fi
+    counter=$((counter + 1))
+    echo "Waiting for ODF to be enabled"
+    sleep 60;
+    ibmcloud ks cluster addon ls -c ${CLUSTER} |  grep openshift-data-foundation | grep "Addon Ready"
+    result=$?
+done
+
+kubectl apply -f -<<EOF
+apiVersion: ocs.ibm.io/v1
+kind: OcsCluster
+metadata:
+  name: ocscluster-vpc
+spec:
+  osdStorageClassName: ibmc-vpc-block-metro-10iops-tier
+  osdSize: 800Gi
+  numOfOsd: 3
+  billingType: essentials
+  ocsUpgrade: false
+EOF
