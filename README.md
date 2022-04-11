@@ -51,11 +51,11 @@ terraform apply -auto-approve
 
 ## 3. Verify
 
-To verify installation on the Openshift cluster you need `oc`, then execute:
+To verify installation on the Openshift cluster you need `kubectl`, then execute:
 
 After the service shows as active in the IBM Cloud resource view, verify the deployment:
 
-    ibmcloud oc cluster addon ls -c <cluster_name>
+    ibmcloud ks cluster addon ls -c <cluster_name>
 
 This should display something like the following:
 
@@ -63,7 +63,7 @@ This should display something like the following:
     
 Verify that the ibm-ocs-operator-controller-manager-***** pod is running in the kube-system namespace.
 
-    oc get pods -A | grep ibm-ocs-operator-controller-manager
+    kubectl get pods -A | grep ibm-ocs-operator-controller-manager
 
 This should produce output like:
 
