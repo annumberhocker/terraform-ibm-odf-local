@@ -5,6 +5,6 @@ module "odf_module" {
   depends_on = [ module.cluster ]
 
   ibmcloud_api_key    = var.ibmcloud_api_key
-  cluster_id          = module.cluster.id
+  cluster_name        = module.cluster.name
 }
 

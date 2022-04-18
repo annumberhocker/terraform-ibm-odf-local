@@ -14,12 +14,6 @@ variable "ibmcloud_api_key" {
   default     = ""
 }
 
-# variable "cluster_name" {
-#   type        = string
-#   description = "The name of the cluster"
-#   default     = ""
-# }
-
 variable "name_prefix" {
   type        = string
   description = "Prefix name that should be used for the cluster and services. If not provided then resource_group_name will be used"
@@ -53,12 +47,6 @@ variable "force_delete_storage" {
   description = "Attribute to force the removal of persistent storage associtated with the cluster"
   default     = false
 }
-
-# variable "vpc_cluster" {
-#   type        = bool
-#   description = "Flag indicating that this is a vpc cluster"
-#   default     = true
-# }
 
 variable "vpc_public_gateway" {
   type        = string

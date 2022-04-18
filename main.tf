@@ -20,7 +20,7 @@ resource "null_resource" "enable_odf" {
   
   triggers = {
     IC_API_KEY = var.ibmcloud_api_key
-    CLUSTER = var.cluster_id
+    CLUSTER = var.cluster_name
   }
 
   provisioner "local-exec" {
@@ -29,7 +29,7 @@ resource "null_resource" "enable_odf" {
 
     environment = {
       IC_API_KEY = var.ibmcloud_api_key
-      CLUSTER = var.cluster_id
+      CLUSTER = var.cluster_name
       ODF_CR_CONTENT = local.installation_content
     }
   }

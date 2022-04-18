@@ -32,15 +32,3 @@ kubectl apply -f -<<EOF
 ${ODF_CR_CONTENT}
 EOF
 
-# kubectl apply -f -<<EOF
-# apiVersion: ocs.ibm.io/v1
-# kind: OcsCluster
-# metadata:
-#   name: ocscluster-vpc
-# spec:
-#   osdStorageClassName: ibmc-vpc-block-metro-10iops-tier
-#   osdSize: 800Gi
-#   numOfOsd: 3
-#   billingType: essentials
-#   ocsUpgrade: false
-# EOF
