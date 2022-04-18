@@ -33,13 +33,13 @@ variable "billingType" {
 
 variable "ocsUpgrade" {
   description = "Whether to upgrade the major version of your ODF deployment."
-  type = boolean
+  type = bool
   default = false
 }
 
 variable "clusterEncryption" {
   description = "Enable encryption of storage cluster"
-  type = boolean
+  type = bool
   default = false
 }
 
