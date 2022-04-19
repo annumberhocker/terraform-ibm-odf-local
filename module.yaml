@@ -5,23 +5,23 @@ tags:
     - tools
     - devops
 versions:
-- platforms: []
- providers:
-   - name: ibm
-     source: "ibm-cloud/ibm"
-  dependencies: []
-   - id: cluster
-     refs:
-       - source: github.com/cloud-native-toolkit/terraform-ibm-ocp-vpc.git
-         version: ">= 1.10.2"
-   - id: resource_group
-     refs:
-        - source: github.com/cloud-native-toolkit/terraform-ibm-resource-group
-          version: ">= 1.0.0"
+- platforms:
+  providers:
+    - name: ibm
+      source: "ibm-cloud/ibm"
+  dependencies:
+    - id: cluster
+      refs:
+        - source: github.com/cloud-native-toolkit/terraform-ibm-ocp-vpc.git
+          version: ">= 1.10.2"
+    - id: resource_group
+      refs:
+         - source: github.com/cloud-native-toolkit/terraform-ibm-resource-group
+           version: ">= 1.0.0"
   variables: 
-   - name: cluster_name
-     moduleRef:
-       id: cluster
-       output: name
-   - name: ibmcloud_api_key
-     scope: global
+    - name: cluster_name
+      moduleRef:
+        id: cluster
+        output: name
+    - name: ibmcloud_api_key
+      scope: global
