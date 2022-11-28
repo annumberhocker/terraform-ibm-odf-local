@@ -11,13 +11,13 @@ variable "ibmcloud_api_key" {
 variable "osdStorageClassName" {
   description = "Storage class that you want to use for your OSD devices"
   type = string
-  default = "ibmc-vpc-block-10iops-tier"
+  default = "ibmc-vpc-block-metro-10iops-tier"
 }
 
 variable "osdSize" {
   description = "Size of your storage devices. The total storage capacity of your ODF cluster is equivalent to the osdSize x 3 divided by the numOfOsd."
   type = string
-  default = "100Gi"
+  default = "250Gi"
 }
 
 variable "numOfOsd" {
@@ -53,5 +53,5 @@ variable "monSize" {
 variable "monStorageClassName" {
   description = "Storage class to use for your Monitor pods. For VPC clusters you must specify a block storage class"
   type = string
-  default = "ibmc-vpc-block-10iops-tier"
+  default = "ibmc-vpc-block-metro-10iops-tier"
 }
